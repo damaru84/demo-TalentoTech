@@ -1,13 +1,9 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class Main {
-    // Variables a nivel de clase
-    private static List<Producto> catalogo = new ArrayList<>();
-    private static List<Pedido> pedidos = new ArrayList<>();
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -20,21 +16,28 @@ public class Main {
             switch (opcion) {
                 case 1:
                     agregarProducto();
+                    System.out.println("Gracias el producto fue agregado exitosamente.");
                     break;
                 case 2:
                     listarProductos();
+                    System.out.println("Gracias la lista productos es la siguiente:");
                     break;
+
                 case 3:
                     buscarActualizarProducto();
+                    System.out.println("Gracias actualice el producto.");
                     break;
                 case 4:
                     eliminarProducto();
+                    System.out.println("Gracias el producto fue eliminado exitosamente.");
                     break;
                 case 5:
                     crearPedido();
+                    System.out.println("Cargue el producto.");
                     break;
                 case 6:
                     listarPedidos();
+                    System.out.println("inserte la lista a agregar.");
                     break;
                 case 7:
                     salir = true;
@@ -45,7 +48,6 @@ public class Main {
             }
         }
     }
-
     // Métodos vacíos por ahora, para evitar errores de compilación
     private static void mostrarMenu() {
         System.out.println("1. Agregar producto");
@@ -57,12 +59,29 @@ public class Main {
         System.out.println("7. Salir");
     }
 
+
     private static int leerEntero(String mensaje) {
         System.out.print(mensaje);
-        return sc.nextInt();
+        int seleccion = sc.nextInt();
+
+        return seleccion;
+
+
     }
 
-    private static void agregarProducto() {}
+    private static void agregarProducto() {
+        sc.nextLine();  // Limpiar el buffer de entrada
+        System.out.print("Nombre del producto: ");
+        String nombre = sc.nextLine();
+
+        System.out.print("Precio del producto: ");
+        double precio = sc.nextDouble();
+        String i = sc.nextLine();
+        System.out.print("Stock del producto: ");
+        int stock = sc.nextInt();
+
+
+    }
     private static void listarProductos() {}
     private static void buscarActualizarProducto() {}
     private static void eliminarProducto() {}
